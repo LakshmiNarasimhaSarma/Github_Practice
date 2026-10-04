@@ -1,0 +1,21 @@
+name: Branch Based CI
+on:
+  push:
+    branches: ['main', 'develop', 'feature/*']
+
+
+jobs:
+  branch-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print branch name
+        run: echo "Current branch is ${{ github.ref_name }}"
+      - name: production style message
+        if: github.ref_name == 'main'
+        run: echo "This is the main branch. Proceeding with production style checks."
+      - name: development style message
+        if: github.ref_name == 'develop'
+        run: echo "This is the develop branch. Proceeding with development style checks."
+      - name: feature style message
+        if: startsWith(github.ref_name, 'feature/')
+        run: echo "This is a feature branch. Proceeding with feature style checks."      
