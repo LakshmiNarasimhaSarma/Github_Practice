@@ -1,0 +1,17 @@
+name: Application CI
+on:
+    push:
+        paths:
+            - application/**
+    pull_request:
+        paths:
+            - application/**
+jobs:
+    Application-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            - name: Application Test
+              run: |
+                echo "Running tests for the application..."
