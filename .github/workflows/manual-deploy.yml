@@ -21,6 +21,6 @@ jobs:
         steps:
             - name: Deploy to selected environment
               run: |
-                  echo "Deploying version ${{ github.event.inputs.version }}"
+                  echo "Deploying version ${{github.event.inputs.version}}"
                   echo "Deploying to ${{ github.event.inputs.environment }} environment"
         
