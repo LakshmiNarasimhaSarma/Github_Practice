@@ -13,5 +13,6 @@ jobs:
             - name: Checkout repository
               uses: actions/checkout@v4
             - name: Application Test
+              working-directory: application
               run: |
                 echo "Running tests for the application..."
