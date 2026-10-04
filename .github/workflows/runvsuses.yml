@@ -1,0 +1,16 @@
+name: Run vs uses
+# This workflow runs the vs uses action to analyze the repository for dependencies and usage.
+on:
+  push:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: List of commands
+        run: |
+          ls -la
+          git branch --show-current
+          git log -1
