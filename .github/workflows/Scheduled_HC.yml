@@ -1,0 +1,23 @@
+name: Scheduled Health check
+on:
+    schedule:
+        - cron: '*/15 * * * *'      
+    workflow_dispatch:  # This allows the workflow to be triggered manually from the GitHub Actions tab.
+jobs:
+    health-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: print health check header
+              run: echo"=== Health Check Workflow ==="
+            - name: print current date and time
+              run: date
+            - name: print hostname
+              run: hostname
+            - name: print disk usage
+              run: df -h
+            - name: print memory information
+              run: free -h
+            - name: print uptime
+              run: uptime
+            - name: health check footer
+              run: echo "=== Health Check Completed ==="
